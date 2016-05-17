@@ -14,9 +14,9 @@ namespace WebDriver.WaitExtensions.WaitTypeSelections
             _waitMs = waitMs;
         }
 
-        public IElementWaitConditions ForElement(By @by)
+        public IWebElementWaitConditions ForElement(By @by)
         {
-            return new ElementWaitConditions(_webDriver, _waitMs, @by);
+            return new WebElementWaitConditions(_webDriver, _waitMs, @by);
         }
     }
 }

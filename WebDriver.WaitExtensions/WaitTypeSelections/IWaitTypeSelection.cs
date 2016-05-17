@@ -5,6 +5,6 @@ namespace WebDriver.WaitExtensions.WaitTypeSelections
 {
     public interface IWaitTypeSelection
     {
-        IElementWaitConditions ForElement(By @by);
+        IWebElementWaitConditions ForElement(By @by);
     }
 }

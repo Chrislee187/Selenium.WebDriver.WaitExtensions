@@ -7,5 +7,6 @@ namespace WebDriver.WaitExtensions.WaitTypeSelections
         ITextWaitConditions ForText(string attrName);
         IClassWaitConditions ForClasses();
         IAttributeWaitConditions ForAttributes();
+        IElementWaitConditions ForElement();
     }
 }

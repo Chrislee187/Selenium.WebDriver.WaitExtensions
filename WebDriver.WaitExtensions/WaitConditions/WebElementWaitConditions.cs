@@ -4,13 +4,13 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebDriver.WaitExtensions.WaitConditions
 {
-    public class ElementWaitConditions : IElementWaitConditions
+    public class WebElementWaitConditions : IWebElementWaitConditions
     {
         private readonly IWebDriver _webDriver;
         private readonly int _waitMs;
         private readonly By _by;
 
-        public ElementWaitConditions(IWebDriver webDriver, int waitMs, By @by)
+        public WebElementWaitConditions(IWebDriver webDriver, int waitMs, By @by)
         {
             _webDriver = webDriver;
             _waitMs = waitMs;

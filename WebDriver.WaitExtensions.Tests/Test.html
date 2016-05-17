@@ -27,25 +27,34 @@
     </tr>
 </table>
 
-    <table>
-        <tr>
-            <td colspan="99">
-                <em>Existing element state changes</em>
-            </td>
-        </tr>
-        <tr>
-            <td><button id="changeTextButton">Change text</button></td>
-            <td id='changeText'>Original Text</td>
-        </tr>
-        <tr>
-            <td><button id="addClassButton">Add Class</button></td>
-            <td id="addClassText">Set Background</td>
-        </tr>
-        <tr>
-            <td><button id="addAttributeButton">Add Attribute</button></td>
-            <td id="addAttributeElement">Attribute 'test' will be set with value 'MyTest'</td>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <td colspan="99">
+            <em>Existing element state changes</em>
+        </td>
+    </tr>
+    <tr>
+        <td><button id="changeTextButton">Change text</button></td>
+        <td id='changeText'>Original Text</td>
+    </tr>
+    <tr>
+        <td><button id="addClassButton">Add Class</button></td>
+        <td id="addClassText">Set Background</td>
+    </tr>
+    <tr>
+        <td><button id="addAttributeButton">Add Attribute</button></td>
+        <td id="addAttributeElement">Attribute 'test' will be set with value 'MyTest'</td>
+    </tr>
+    <tr>
+        <td><button id="showElementButton">Show element</button></td>
+        <td><span id="elementToShow" style="display: none">Previously non-visible element</span></td>
+    </tr>
+    <tr>
+        <td><button id="hideElementButton">Hide element</button></td>
+        <td><span id="elementToHide">This element will be hidden</span></td>
+    </tr>
+</table>
+    <div id="neverVisibleElement" style="display: none"></div>
 </body>
 <script>
     var delayMs = 2000;
@@ -79,6 +88,20 @@
         $("#addAttributeButton").click(function () {
             window.setTimeout(function () {
                 $("#addAttributeElement").attr("test","MyTest");
+            },
+                delayMs);
+        });
+
+        $("#showElementButton").click(function () {
+            window.setTimeout(function () {
+                $("#elementToShow").show();
+            },
+                delayMs);
+        });
+
+        $("#hideElementButton").click(function () {
+            window.setTimeout(function () {
+                $("#elementToHide").hide();
             },
                 delayMs);
         });

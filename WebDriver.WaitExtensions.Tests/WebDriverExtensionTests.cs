@@ -97,7 +97,7 @@ namespace WebDriver.WaitExtensions.Tests
         }
 
         [Test]
-        public void ShouldWaitForClassesToContains()
+        public void ShouldWaitForClassToContains()
         {
             var element = _driver.FindElement(By.Id("addClassText"));
             _driver.FindElement(By.Id("addClassButton")).Click();
@@ -105,9 +105,8 @@ namespace WebDriver.WaitExtensions.Tests
             element.Wait(2500).ForClasses().ToContain("backred");
         }
 
-
         [Test]
-        public void ShouldWaitForClassesToNotContain()
+        public void ShouldTimeoutWaitingForClassToNotContain()
         {
             var element = _driver.FindElement(By.Id("addClassText"));
 
@@ -135,12 +134,12 @@ namespace WebDriver.WaitExtensions.Tests
         {
             var element = _driver.FindElement(By.Id("addAttributeElement"));
             _driver.FindElement(By.Id("addAttributeButton")).Click();
-
+            
             element.Wait(2500).ForAttributes().ToContainWithValue("test","MyTest");
         }
 
         [Test]
-        public void ShouldWaitForAttributeToNotContainValue()
+        public void ShouldTimeoutWaitingForAttributeToNotContainValue()
         {
             var element = _driver.FindElement(By.Id("addAttributeElement"));
             Assert.Throws<WebDriverTimeoutException>( ()=> element.Wait(2500).ForAttributes().ToContainWithoutValue("test", "never-set-value"));
@@ -151,6 +150,23 @@ namespace WebDriver.WaitExtensions.Tests
             var element = _driver.FindElement(By.Id("addAttributeElement"));
 Assert.Throws<WebDriverTimeoutException>(() => element.Wait(25).ForAttributes().ToNotContain("attribute-that-never-exists"));
 
+        }
+
+        [Test]
+        public void ShouldWaitForElementToBeVisible()
+        {
+            var element = _driver.FindElement(By.Id("elementToShow"));
+            _driver.FindElement(By.Id("showElementButton")).Click();
+
+            element.Wait(2500).ForElement().ToBeVisible();
+        }
+
+        [Test]
+        public void ShouldTimeoutWaitingForElementToBeVisible()
+        {
+            var element = _driver.FindElement(By.Id("neverVisibleElement"));
+
+            Assert.Throws<WebDriverTimeoutException>(()=> element.Wait(25).ForElement().ToBeVisible());
         }
     }
 }
