@@ -95,5 +95,22 @@ namespace WebDriver.WaitExtensions.Tests
 
             Assert.Throws<WebDriverTimeoutException>(() => element.Wait(2500).ForText("text").ToContain("xy"));
         }
+
+        [Test]
+        public void ShouldWaitForClassToBeAdded()
+        {
+            var element = _driver.FindElement(By.Id("addClassText"));
+            _driver.FindElement(By.Id("addClassButton")).Click();
+
+            element.Wait(2500).ForClasses().ToContain("backred");
+        }
+
+        [Test]
+        public void ShouldTimeoutWaitingForClassToBeAdded()
+        {
+            var element = _driver.FindElement(By.Id("addClassText"));
+            
+            Assert.Throws<WebDriverTimeoutException>(() => element.Wait(2500).ForClasses().ToContain("backred"));
+        }
     }
 }

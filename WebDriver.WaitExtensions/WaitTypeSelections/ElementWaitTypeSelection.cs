@@ -18,5 +18,10 @@ namespace WebDriver.WaitExtensions.WaitTypeSelections
         {
             return new TextWaitConditions(_webelement, _delayMs);
         }
+
+        public IClassWaitConditions ForClasses()
+        {
+            return new ClassWaitConditions(_webelement, _delayMs);
+        }
     }
 }

@@ -5,6 +5,12 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <style>
+        .backred {
+            background-color: red;
+        }
+    </style>
+
 </head>
 <body>
 <strong>All actions are performed after a 2000ms delay.</strong>
@@ -31,6 +37,10 @@
             <td><button id="changeTextButton">Change text</button></td>
             <td id='changeText'>Original Text</td>
         </tr>
+        <tr>
+            <td><button id="addClassButton">Add Class</button></td>
+            <td id="addClassText">Set Background</td>
+        </tr>
     </table>
 </body>
 <script>
@@ -51,6 +61,13 @@
         $("#changeTextButton").click(function () {
             window.setTimeout(function () {
                 $("#changeText").text("New Text");
+            },
+                delayMs);
+        });
+
+        $("#addClassButton").click(function () {
+            window.setTimeout(function () {
+                $("#addClassText").addClass("backred");
             },
                 delayMs);
         });
