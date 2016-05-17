@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
+using WebDriver.WaitExtensions.WaitConditions;
 
-namespace WebDriver.WaitExtensions
+namespace WebDriver.WaitExtensions.WaitTypeSelections
 {
     public class WaitTypeSelection : IWaitTypeSelection
     {

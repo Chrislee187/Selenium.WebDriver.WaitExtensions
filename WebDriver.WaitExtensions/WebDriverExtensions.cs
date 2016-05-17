@@ -1,6 +1,7 @@
 using System.Net;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using WebDriver.WaitExtensions.WaitTypeSelections;
 
 namespace WebDriver.WaitExtensions
 {

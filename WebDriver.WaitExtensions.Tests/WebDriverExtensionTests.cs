@@ -73,5 +73,27 @@ namespace WebDriver.WaitExtensions.Tests
 
             Assert.Throws<WebDriverTimeoutException>(() => element.Wait().ForText("text").ToEqual("Text That Never Appears"));
         }
+
+        [Test]
+        public void ShouldWaitForTextToContain()
+        {
+            _driver.Navigate().Refresh();
+
+            var element = _driver.FindElement(By.Id("changeText"));
+            _driver.FindElement(By.Id("changeTextButton")).Click();
+
+            element.Wait(2500).ForText("text").ToContain("ew T");
+
+        }
+
+        [Test]
+        public void ShouldTimeoutWaitingForTextToContain()
+        {
+            _driver.Navigate().Refresh();
+
+            var element = _driver.FindElement(By.Id("changeText"));
+
+            Assert.Throws<WebDriverTimeoutException>(() => element.Wait(2500).ForText("text").ToContain("xy"));
+        }
     }
 }

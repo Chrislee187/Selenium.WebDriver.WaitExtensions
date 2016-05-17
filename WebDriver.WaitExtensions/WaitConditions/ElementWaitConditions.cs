@@ -2,7 +2,7 @@ using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace WebDriver.WaitExtensions
+namespace WebDriver.WaitExtensions.WaitConditions
 {
     public class ElementWaitConditions : IElementWaitConditions
     {

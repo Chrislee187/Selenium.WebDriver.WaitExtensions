@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
+using WebDriver.WaitExtensions.WaitConditions;
 
-namespace WebDriver.WaitExtensions
+namespace WebDriver.WaitExtensions.WaitTypeSelections
 {
     public class ElementWaitTypeSelection : IElementWaitTypeSelection
     {
@@ -15,7 +16,7 @@ namespace WebDriver.WaitExtensions
 
         public ITextWaitConditions ForText(string attrName)
         {
-            return new TextWaitConditions(_webelement, _delayMs, attrName);
+            return new TextWaitConditions(_webelement, _delayMs);
         }
     }
 }

@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace WebDriver.WaitExtensions
+namespace WebDriver.WaitExtensions.WaitConditions
 {
     public interface IElementWaitConditions
     {

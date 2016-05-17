@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using WebDriver.WaitExtensions.WaitTypeSelections;
 
 namespace WebDriver.WaitExtensions
 {
