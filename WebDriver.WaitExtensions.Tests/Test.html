@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+</head>
+<body>
+<strong>All actions are performed after a 2000ms delay.</strong>
+<table>
+    <tr><td colspan="99">
+            <em>Element creation and removal</em></td></tr>
+    <tr>
+        <td><button id="createdSpanTestButton">Create Element</button></td>
+        <td id='createdSpanContainer'></td>
+    </tr>
+    <tr>
+        <td><button id="removedSpanTestButton">Remove Element</button></td>
+        <td><span id="elementToBeRemoved">Element To Be Removed</span></td>
+    </tr>
+</table>
+</body>
+<script>
+    var delayMs = 2000;
+    $(document).ready(function () {
+        $("#createdSpanTestButton").click(function () {
+            window.setTimeout(function () {
+                $("#createdSpanContainer").append("<span id='createdSpan'>Created Span</span>");
+            },
+                delayMs);
+        });
+        $("#removedSpanTestButton").click(function () {
+            window.setTimeout(function () {
+                $("#elementToBeRemoved").remove();
+            },
+                delayMs);
+        });
+    });
+
+</script>
+</html>
