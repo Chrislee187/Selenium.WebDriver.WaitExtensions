@@ -20,13 +20,25 @@
         <td><span id="elementToBeRemoved">Element To Be Removed</span></td>
     </tr>
 </table>
+
+    <table>
+        <tr>
+            <td colspan="99">
+                <em>Existing element state changes</em>
+            </td>
+        </tr>
+        <tr>
+            <td><button id="changeTextButton">Change text</button></td>
+            <td id='changeText'>Original Text</td>
+        </tr>
+    </table>
 </body>
 <script>
     var delayMs = 2000;
     $(document).ready(function () {
         $("#createdSpanTestButton").click(function () {
             window.setTimeout(function () {
-                $("#createdSpanContainer").append("<span id='createdSpan'>Created Span</span>");
+                $("#createdSpanContainer").append("<span id='createdSpan'>Created Element</span>");
             },
                 delayMs);
         });
@@ -36,6 +48,14 @@
             },
                 delayMs);
         });
+        $("#changeTextButton").click(function () {
+            window.setTimeout(function () {
+                $("#changeText").text("New Text");
+            },
+                delayMs);
+        });
+
+
     });
 
 </script>

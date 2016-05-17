@@ -38,10 +38,40 @@ namespace WebDriver.WaitExtensions.Tests
         }
 
         [Test]
+        public void ShouldThrowWhenTimeoutWaitingForElementToExist()
+        {
+            Assert.Throws<WebDriverTimeoutException>(() => _driver.Wait().ForElement(By.Id("non-existing-element")).ToExist());
+        }
+
+        [Test]
         public void ShouldWaitForElementToNotExist()
         {
             _driver.FindElement(By.Id("removedSpanTestButton")).Click();
             _driver.Wait(2500).ForElement(By.Id("elementToBeRemoved")).ToNotExist();
+        }
+
+        [Test]
+        public void ShouldThrowWhenTimeoutWaitingForElementToNotExist()
+        {
+            Assert.Throws<WebDriverTimeoutException>(() => _driver.Wait().ForElement(By.TagName("HEAD")).ToNotExist());
+        }
+
+        [Test]
+        public void ShouldWaitForTextToChange()
+        {
+            var element = _driver.FindElement(By.Id("changeText"));
+            _driver.FindElement(By.Id("changeTextButton")).Click();
+
+            element.Wait(2500).ForText("text").ToEqual("New Text");
+
+        }
+
+        [Test]
+        public void ShouldThrowWhenTimeoutWaitingForTextToChange()
+        {
+            var element = _driver.FindElement(By.Id("changeText"));
+
+            Assert.Throws<WebDriverTimeoutException>(() => element.Wait().ForText("text").ToEqual("Text That Never Appears"));
         }
     }
 }

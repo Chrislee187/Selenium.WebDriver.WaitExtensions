@@ -49,13 +49,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TextWaitConditions.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="ElementWaitConditions.cs" />
+    <Compile Include="ElementWaitTypeSelection.cs" />
+    <Compile Include="ITextWaitConditions.cs" />
     <Compile Include="IElementWaitConditions.cs" />
+    <Compile Include="IElementWaitTypeSelection.cs" />
     <Compile Include="IWaitTypeSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WaitTypeSelection.cs" />
     <Compile Include="WebDriverExtensions.cs" />
+    <Compile Include="WebElementExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

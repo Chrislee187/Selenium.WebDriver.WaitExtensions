@@ -1,4 +1,6 @@
+using System.Net;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace WebDriver.WaitExtensions
 {
