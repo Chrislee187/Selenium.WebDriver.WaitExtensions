@@ -112,5 +112,22 @@ namespace WebDriver.WaitExtensions.Tests
             
             Assert.Throws<WebDriverTimeoutException>(() => element.Wait(2500).ForClasses().ToContain("backred"));
         }
+
+        [Test]
+        public void ShouldWaitForAttributeToBeAdded()
+        {
+            var element = _driver.FindElement(By.Id("addAttributeElement"));
+            _driver.FindElement(By.Id("addAttributeButton")).Click();
+
+            element.Wait(2500).ForAttributes().ToContain("test");
+        }
+
+        [Test]
+        public void ShouldTimeoutWaitingForAttributeToBeAdded()
+        {
+            var element = _driver.FindElement(By.Id("addAttributeElement"));
+            element.Wait(25).ForAttributes().ToNotContain("attribute-that-never-exists");
+
+        }
     }
 }

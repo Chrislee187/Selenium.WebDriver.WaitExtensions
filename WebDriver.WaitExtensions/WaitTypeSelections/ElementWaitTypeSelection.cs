@@ -23,5 +23,10 @@ namespace WebDriver.WaitExtensions.WaitTypeSelections
         {
             return new ClassWaitConditions(_webelement, _delayMs);
         }
+
+        public IAttributeWaitConditions ForAttributes()
+        {
+            return new AttributeWaitConditions(_webelement, _delayMs);
+        }
     }
 }

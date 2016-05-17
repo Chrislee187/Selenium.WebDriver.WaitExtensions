@@ -41,6 +41,10 @@
             <td><button id="addClassButton">Add Class</button></td>
             <td id="addClassText">Set Background</td>
         </tr>
+        <tr>
+            <td><button id="addAttributeButton">Add Attribute</button></td>
+            <td id="addAttributeElement">Attribute 'test' will be set with value 'MyTest'</td>
+        </tr>
     </table>
 </body>
 <script>
@@ -68,6 +72,13 @@
         $("#addClassButton").click(function () {
             window.setTimeout(function () {
                 $("#addClassText").addClass("backred");
+            },
+                delayMs);
+        });
+
+        $("#addAttributeButton").click(function () {
+            window.setTimeout(function () {
+                $("#addAttributeElement").attr("test","MyTest");
             },
                 delayMs);
         });
