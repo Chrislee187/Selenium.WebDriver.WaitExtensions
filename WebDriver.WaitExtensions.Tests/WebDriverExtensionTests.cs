@@ -97,7 +97,7 @@ namespace WebDriver.WaitExtensions.Tests
         }
 
         [Test]
-        public void ShouldWaitForClassToBeAdded()
+        public void ShouldWaitForClassesToContains()
         {
             var element = _driver.FindElement(By.Id("addClassText"));
             _driver.FindElement(By.Id("addClassButton")).Click();
@@ -105,6 +105,14 @@ namespace WebDriver.WaitExtensions.Tests
             element.Wait(2500).ForClasses().ToContain("backred");
         }
 
+
+        [Test]
+        public void ShouldWaitForClassesToNotContain()
+        {
+            var element = _driver.FindElement(By.Id("addClassText"));
+
+            Assert.Throws<WebDriverTimeoutException>( () => element.Wait(2500).ForClasses().ToNotContain("class-that-never-existss"));
+        }
         [Test]
         public void ShouldTimeoutWaitingForClassToBeAdded()
         {
@@ -128,20 +136,20 @@ namespace WebDriver.WaitExtensions.Tests
             var element = _driver.FindElement(By.Id("addAttributeElement"));
             _driver.FindElement(By.Id("addAttributeButton")).Click();
 
-            element.Wait(2500).ForAttributes().ToContainValue("test","MyTest");
+            element.Wait(2500).ForAttributes().ToContainWithValue("test","MyTest");
         }
 
         [Test]
         public void ShouldWaitForAttributeToNotContainValue()
         {
             var element = _driver.FindElement(By.Id("addAttributeElement"));
-            element.Wait(2500).ForAttributes().ToNotContainValue("test", "never-set-value");
+            Assert.Throws<WebDriverTimeoutException>( ()=> element.Wait(2500).ForAttributes().ToContainWithoutValue("test", "never-set-value"));
         }
         [Test]
         public void ShouldTimeoutWaitingForAttributeToBeAdded()
         {
             var element = _driver.FindElement(By.Id("addAttributeElement"));
-            element.Wait(25).ForAttributes().ToNotContain("attribute-that-never-exists");
+Assert.Throws<WebDriverTimeoutException>(() => element.Wait(25).ForAttributes().ToNotContain("attribute-that-never-exists"));
 
         }
     }

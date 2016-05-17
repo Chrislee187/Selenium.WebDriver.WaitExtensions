@@ -17,5 +17,9 @@ namespace WebDriver.WaitExtensions.WaitConditions
         {
             return WaitFor(() => _webelement.GetAttribute("class").Split(' ').Contains(className));
         }
+        public bool ToNotContain(string className)
+        {
+            return WaitFor(() => !ToContain(className));
+        }
     }
 }

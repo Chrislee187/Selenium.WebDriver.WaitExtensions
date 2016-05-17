@@ -16,19 +16,19 @@ namespace WebDriver.WaitExtensions.WaitConditions
             return WaitFor(() => !string.IsNullOrEmpty(_webelement.GetAttribute(attrName)));
         }
 
-        public bool ToContainValue(string attrName, string attrValue)
-        {
-            return WaitFor(() => !string.IsNullOrEmpty(_webelement.GetAttribute(attrName)) && _webelement.GetAttribute(attrName) == attrValue);
-        }
-
-        public bool ToNotContainValue(string attrName, string attrValue)
-        {
-            return WaitFor(() => !string.IsNullOrEmpty(_webelement.GetAttribute(attrName)) && _webelement.GetAttribute(attrName) != attrValue);
-        }
-
         public bool ToNotContain(string attrName)
         {
-            return WaitFor(() => string.IsNullOrEmpty(_webelement.GetAttribute(attrName)));
+            return WaitFor(() => !ToContain(attrName));
+        }
+
+        public bool ToContainWithValue(string attrName, string attrValue)
+        {
+            return WaitFor(() => ToContain(attrName) && _webelement.GetAttribute(attrName) == attrValue);
+        }
+
+        public bool ToContainWithoutValue(string attrName, string attrValue)
+        {
+            return WaitFor(() => !ToContain(attrName) && _webelement.GetAttribute(attrName) != attrValue);
         }
     }
 }
