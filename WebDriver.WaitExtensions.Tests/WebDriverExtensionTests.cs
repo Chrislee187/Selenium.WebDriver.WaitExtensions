@@ -123,6 +123,21 @@ namespace WebDriver.WaitExtensions.Tests
         }
 
         [Test]
+        public void ShouldWaitForAttributeToContainValue()
+        {
+            var element = _driver.FindElement(By.Id("addAttributeElement"));
+            _driver.FindElement(By.Id("addAttributeButton")).Click();
+
+            element.Wait(2500).ForAttributes().ToContainValue("test","MyTest");
+        }
+
+        [Test]
+        public void ShouldWaitForAttributeToNotContainValue()
+        {
+            var element = _driver.FindElement(By.Id("addAttributeElement"));
+            element.Wait(2500).ForAttributes().ToNotContainValue("test", "never-set-value");
+        }
+        [Test]
         public void ShouldTimeoutWaitingForAttributeToBeAdded()
         {
             var element = _driver.FindElement(By.Id("addAttributeElement"));
