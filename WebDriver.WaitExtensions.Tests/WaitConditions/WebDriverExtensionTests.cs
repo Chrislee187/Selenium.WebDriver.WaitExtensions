@@ -7,6 +7,12 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
     public class WebDriverExtensionTests
     {
         private readonly IWebDriver Driver = MySetUpClass.Driver;
+
+        [SetUp]
+        public void SetUp()
+        {
+            Driver.Navigate().Refresh();
+        }
         [Test]
         public void ShouldWaitForElementToExist()
         {

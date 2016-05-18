@@ -10,6 +10,11 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
     {
         private readonly IWebDriver Driver = MySetUpClass.Driver;
 
+        [SetUp]
+        public void SetUp()
+        {
+            Driver.Navigate().Refresh();
+        }
         [Test]
         public void ShouldWaitForElementToBeVisible()
         {
