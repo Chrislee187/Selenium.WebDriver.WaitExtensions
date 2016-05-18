@@ -22,24 +22,4 @@ namespace WebDriver.WaitExtensions.WaitConditions
             return WaitFor(() => _webelement.Text.Contains(partial));
         }
     }
-
-    public class ElementWaitConditions : WaitConditionsBase, IElementWaitConditions
-    {
-        private readonly IWebElement _webelement;
-
-        public ElementWaitConditions(IWebElement webelement, int waitMs) : base(waitMs)
-        {
-            _webelement = webelement;
-        }
-
-        public void ToBeVisible()
-        {
-            WaitFor(() => _webelement.Displayed);
-        }
-
-        public void ToNotBeVisible()
-        {
-            WaitFor(() => !_webelement.Displayed);
-        }
-    }
 }

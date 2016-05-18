@@ -53,9 +53,19 @@
         <td><button id="hideElementButton">Hide element</button></td>
         <td><span id="elementToHide">This element will be hidden</span></td>
     </tr>
+    <tr>
+        <td><button id="disableElementButton">Disable element</button></td>
+        <td><button id="elementToDisable">Button</button></td>
+    </tr>
+    <tr>
+        <td><button id="enableElementButton">Enable element</button></td>
+        <td><button id="elementToEnable" disabled="disabled">Button</button></td>
+    </tr>
 </table>
     <div id="neverVisibleElement" style="display: none"></div>
     <div id="alwaysVisibleElement"></div>
+    <button id="alwaysEnabledElement">Always Enabled</button>
+    <button id="alwaysDisabledElement" disabled="disabled">Always Disabled</button>
 </body>
 <script>
     var delayMs = 2000;
@@ -107,6 +117,18 @@
                 delayMs);
         });
 
+        $("#disableElementButton").click(function () {
+            window.setTimeout(function () {
+                $("#elementToDisable").prop("disabled", true);
+            },
+                delayMs);
+        });
+        $("#enableElementButton").click(function () {
+            window.setTimeout(function () {
+                $("#elementToEnable").prop("disabled", false);
+            },
+                delayMs);
+        });
 
     });
 

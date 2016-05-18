@@ -54,6 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Utils.cs" />
+    <Compile Include="WaitConditions\AttributeWaitConditionTests.cs" />
+    <Compile Include="WaitConditions\ClassWaitConditionTests.cs" />
+    <Compile Include="WaitConditions\ElementWaitConditionTests.cs" />
+    <Compile Include="WaitConditions\TextWaitConditionTests.cs" />
     <Compile Include="WebDriverExtensionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

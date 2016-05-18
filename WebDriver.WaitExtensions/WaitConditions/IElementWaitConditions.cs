@@ -3,6 +3,8 @@ namespace WebDriver.WaitExtensions.WaitConditions
     public interface IElementWaitConditions
     {
         void ToBeVisible();
-        void ToNotBeVisible();
+        void ToBeInvisible();
+        void ToBeDisabled();
+        void ToBeEnabled();
     }
 }

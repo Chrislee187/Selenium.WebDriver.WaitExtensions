@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriver.WaitExtensions.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriver.WaitExtensions", "WebDriver.WaitExtensions\WebDriver.WaitExtensions.csproj", "{4AC218D5-DB9B-4829-8164-B45FB26C7E6E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3343AECC-7CBE-47D4-B855-50309D88034B}"
+	ProjectSection(SolutionItems) = preProject
+		readme.MD = readme.MD
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
