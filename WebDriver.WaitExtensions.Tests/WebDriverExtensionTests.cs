@@ -168,5 +168,24 @@ Assert.Throws<WebDriverTimeoutException>(() => element.Wait(25).ForAttributes().
 
             Assert.Throws<WebDriverTimeoutException>(()=> element.Wait(25).ForElement().ToBeVisible());
         }
+
+        [Test]
+        public void ShouldWaitForElementToNotBeVisible()
+        {
+            var element = _driver.FindElement(By.Id("elementToHide"));
+            _driver.FindElement(By.Id("hideElementButton")).Click();
+
+            element.Wait(2500).ForElement().ToNotBeVisible();
+        }
+
+        [Test]
+        public void ShouldTimeoutWaitingElementToNotBeVisible()
+        {
+            var element = _driver.FindElement(By.Id("alwaysVisibleElement"));
+
+            element.Wait(2500).ForElement().ToNotBeVisible();
+        }
+
+
     }
 }
