@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -28,6 +29,15 @@ namespace WebDriver.WaitExtensions.WaitConditions
         {
             return WaitFor(() => !_webelement.Text.Contains(text));
         }
-
+        public bool ToMatch(string regexPattern)
+        {
+            var regex = new Regex(regexPattern);
+            return WaitFor(() => regex.Match(_webelement.Text).Success);
+        }
+        public bool ToNotMatch(string regexPattern)
+        {
+            var regex = new Regex(regexPattern);
+            return WaitFor(() => !regex.Match(_webelement.Text).Success);
+        }
     }
 }

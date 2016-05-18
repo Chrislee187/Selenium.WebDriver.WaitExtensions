@@ -14,7 +14,7 @@ namespace WebDriver.WaitExtensions.WaitTypeSelections
             _delayMs = delayMs;
         }
 
-        public ITextWaitConditions ForText(string attrName)
+        public ITextWaitConditions ForText()
         {
             return new TextWaitConditions(_webelement, _delayMs);
         }

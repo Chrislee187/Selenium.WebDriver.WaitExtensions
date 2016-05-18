@@ -6,5 +6,7 @@ namespace WebDriver.WaitExtensions.WaitConditions
         bool ToContain(string text);
         bool ToNotEqual(string text);
         bool ToNotContain(string text);
+        bool ToMatch(string regex);
+        bool ToNotMatch(string regex);
     }
 }
