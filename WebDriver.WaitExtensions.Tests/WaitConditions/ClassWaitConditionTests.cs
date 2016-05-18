@@ -8,29 +8,13 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
     [TestFixture]
     public class ClassWaitConditionTests
     {
-        private ChromeDriver _driver;
-        private string _htmlFolder;
+        private readonly IWebDriver Driver = MySetUpClass.Driver;
 
-        [OneTimeSetUp]
-        public void SetUp()
-        {
-            _driver = new ChromeDriver();
-            _htmlFolder = Utils.AssemblyDirectory;
-            _driver.Navigate().GoToUrl(Path.Combine(_htmlFolder, "Test.html"));
-        }
-
-        [OneTimeTearDown]
-        public void TearDown()
-        {
-            _driver.Close();
-            _driver.Quit();
-        }
-        
         [Test]
         public void ShouldWaitForClassToContains()
         {
-            var element = _driver.FindElement(By.Id("addClassText"));
-            _driver.FindElement(By.Id("addClassButton")).Click();
+            var element = Driver.FindElement(By.Id("addClassText"));
+            Driver.FindElement(By.Id("addClassButton")).Click();
 
             element.Wait(2500).ForClasses().ToContain("backred");
         }
@@ -38,14 +22,14 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         [Test]
         public void ShouldTimeoutWaitingForClassToNotContain()
         {
-            var element = _driver.FindElement(By.Id("addClassText"));
+            var element = Driver.FindElement(By.Id("addClassText"));
 
             Assert.Throws<WebDriverTimeoutException>( () => element.Wait(2500).ForClasses().ToNotContain("class-that-never-existss"));
         }
         [Test]
         public void ShouldTimeoutWaitingForClassToBeAdded()
         {
-            var element = _driver.FindElement(By.Id("addClassText"));
+            var element = Driver.FindElement(By.Id("addClassText"));
             
             Assert.Throws<WebDriverTimeoutException>(() => element.Wait(2500).ForClasses().ToContain("backred"));
         }

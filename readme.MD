@@ -1,11 +1,7 @@
 TODO
 
 Rename namespace to Selenium.WebDriver.WaitExtensions
-Make tests use a single instance of the browser
 nuget package for extensions assembly
-
-Addtional TextWaitConditions
-	ToMatch/ToNotMatch (Regex)
 
 Additional ElementWaitConditions
 	ToBeSelected
@@ -19,3 +15,26 @@ New PageWaitConditions
 	AlertBoxShown()
 	TitleEquals/Contains/MaTCHES
 	See other ExpectedConditions.*
+
+INTRODUCTION
+More and more websites these days require asyncronous behavior, either because of AJAX calls to the back end, or, as is becoming more common, the JS presentation/binding/MVVM framework (such as Angular, React, Knockout ) uses asyncronicity to use create a responsive user experience.
+
+These solutions often means that simple Selenium test code requires some form of "wait" between executing an action and checking it's results.
+
+The Selenium.WebDriver.Support package offers a WebDriverWait class that offers some waiting support but this can be cumbersome to use to create individual delays for a specific piece of behaviour.
+
+Enter Selenium.WebDriver.WaitExtensions, some simple extension methods to make testing Selenium.WebDriver testing of async behaviour at little nicer and a little less cumbersome.
+
+QUICK EXAMPLES
+Wait for an element to appear in the DOM
+	webdriver.Wait(2500).ForElement(By.Id("dynamicElement").ToExist()
+
+Wait for a class to attach to an element
+	webelement.Wait(2500).ForClass().ToContains("my-new-class")
+
+There are several "waits" available for WebElements including;
+	ForClass() to check for changes to the 'class' attribute of the element
+	ForText() to check for changes to the 'text' attribute of the element
+	ForAttribute() to check for changes to invididual attributes of the element
+	ForElement() to check for element level property changes, such as 'disabled' and 'displayed'
+

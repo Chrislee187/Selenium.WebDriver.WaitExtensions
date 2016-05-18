@@ -8,29 +8,13 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
     [TestFixture]
     public class ElementWaitConditionTests
     {
-        private ChromeDriver _driver;
-        private string _htmlFolder;
+        private readonly IWebDriver Driver = MySetUpClass.Driver;
 
-        [OneTimeSetUp]
-        public void SetUp()
-        {
-            _driver = new ChromeDriver();
-            _htmlFolder = Utils.AssemblyDirectory;
-            _driver.Navigate().GoToUrl(Path.Combine(_htmlFolder, "Test.html"));
-        }
-
-        [OneTimeTearDown]
-        public void TearDown()
-        {
-            _driver.Close();
-            _driver.Quit();
-        }
-  
         [Test]
         public void ShouldWaitForElementToBeVisible()
         {
-            var element = _driver.FindElement(By.Id("elementToShow"));
-            _driver.FindElement(By.Id("showElementButton")).Click();
+            var element = Driver.FindElement(By.Id("elementToShow"));
+            Driver.FindElement(By.Id("showElementButton")).Click();
 
             element.Wait(2500).ForElement().ToBeVisible();
         }
@@ -38,7 +22,7 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         [Test]
         public void ShouldTimeoutWaitingForElementToBeVisible()
         {
-            var element = _driver.FindElement(By.Id("neverVisibleElement"));
+            var element = Driver.FindElement(By.Id("neverVisibleElement"));
 
             Assert.Throws<WebDriverTimeoutException>(()=> element.Wait(25).ForElement().ToBeVisible());
         }
@@ -46,8 +30,8 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         [Test]
         public void ShouldWaitForElementToNotBeVisible()
         {
-            var element = _driver.FindElement(By.Id("elementToHide"));
-            _driver.FindElement(By.Id("hideElementButton")).Click();
+            var element = Driver.FindElement(By.Id("elementToHide"));
+            Driver.FindElement(By.Id("hideElementButton")).Click();
 
             element.Wait(2500).ForElement().ToBeInvisible();
         }
@@ -55,7 +39,7 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         [Test]
         public void ShouldTimeoutWaitingElementToNotBeVisible()
         {
-            var element = _driver.FindElement(By.Id("alwaysVisibleElement"));
+            var element = Driver.FindElement(By.Id("alwaysVisibleElement"));
 
             element.Wait(2500).ForElement().ToBeInvisible();
         }
@@ -63,8 +47,8 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         [Test]
         public void ShouldWaitForElementToBeDisabled()
         {
-            var element = _driver.FindElement(By.Id("elementToDisable"));
-            _driver.FindElement(By.Id("disableElementButton")).Click();
+            var element = Driver.FindElement(By.Id("elementToDisable"));
+            Driver.FindElement(By.Id("disableElementButton")).Click();
 
             element.Wait(2500).ForElement().ToBeDisabled();
         }
@@ -72,7 +56,7 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         [Test]
         public void ShouldTimeoutWaitingForElementToBeDisabled()
         {
-            var element = _driver.FindElement(By.Id("createdSpanTestButton"));
+            var element = Driver.FindElement(By.Id("createdSpanTestButton"));
 
             Assert.Throws<WebDriverTimeoutException>( () =>
             element.Wait(2500).ForElement().ToBeDisabled());
@@ -81,8 +65,8 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         [Test]
         public void ShouldWaitForElementToBeEnabled()
         {
-            var element = _driver.FindElement(By.Id("elementToEnable"));
-            _driver.FindElement(By.Id("enableElementButton")).Click();
+            var element = Driver.FindElement(By.Id("elementToEnable"));
+            Driver.FindElement(By.Id("enableElementButton")).Click();
 
             element.Wait(2500).ForElement().ToBeEnabled();
         }
@@ -90,9 +74,11 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         [Test]
         public void ShouldTimeoutWaitingForElementToBeEnabled()
         {
-            var element = _driver.FindElement(By.Id("alwaysDisabledElement"));
+            var element = Driver.FindElement(By.Id("alwaysDisabledElement"));
 
             Assert.Throws<WebDriverTimeoutException>( () =>element.Wait(2500).ForElement().ToBeEnabled());
         }
+
+
     }
 }
