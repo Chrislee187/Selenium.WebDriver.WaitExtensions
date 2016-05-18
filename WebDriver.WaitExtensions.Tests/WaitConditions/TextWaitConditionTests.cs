@@ -56,6 +56,14 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         }
 
         [Test]
+        public void ShouldTimeoutWaitingForTextToNotEqual()
+        {
+            var element = _driver.FindElement(By.Id("changeText"));
+
+            Assert.Throws<WebDriverTimeoutException>(() => element.Wait().ForText("text").ToEqual("will never equal this"));
+
+        }
+        [Test]
         public void ShouldWaitForTextToContain()
         {
             _driver.Navigate().Refresh();
@@ -68,17 +76,6 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         }
 
         [Test]
-        public void ShouldWaitForTextToNotContains()
-        {
-            _driver.Navigate().Refresh();
-
-            var element = _driver.FindElement(By.Id("changeText"));
-            _driver.FindElement(By.Id("changeTextButton")).Click();
-
-            element.Wait(2500).ForText("text").ToNotContain("New");
-        }
-
-        [Test]
         public void ShouldTimeoutWaitingForTextToContain()
         {
             _driver.Navigate().Refresh();
@@ -86,6 +83,24 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
             var element = _driver.FindElement(By.Id("changeText"));
 
             Assert.Throws<WebDriverTimeoutException>(() => element.Wait(2500).ForText("text").ToContain("xy"));
+        }
+        [Test]
+        public void ShouldWaitForTextToNotContains()
+        {
+            _driver.Navigate().Refresh();
+
+            var element = _driver.FindElement(By.Id("changeText"));
+
+            element.Wait(2500).ForText("text").ToNotContain("New");
+        }
+
+        [Test]
+        public void ShouldTimeoutWaitingForTextToNotContain()
+        {
+            _driver.Navigate().Refresh();
+            var element = _driver.FindElement(By.Id("changeText"));
+
+            Assert.Throws<WebDriverTimeoutException>(() => element.Wait(2500).ForText("text").ToNotContain("Original"));
         }
     }
 }
