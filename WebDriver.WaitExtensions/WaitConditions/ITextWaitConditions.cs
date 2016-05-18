@@ -2,7 +2,9 @@ namespace WebDriver.WaitExtensions.WaitConditions
 {
     public interface ITextWaitConditions
     {
-        bool ToEqual(string newText);
-        bool ToContain(string partial);
+        bool ToEqual(string text);
+        bool ToContain(string text);
+        bool ToNotEqual(string text);
+        bool ToNotContain(string text);
     }
 }

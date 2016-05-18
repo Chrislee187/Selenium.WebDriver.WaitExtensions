@@ -5,8 +5,6 @@ Make tests use a single instance of the browser
 nuget package for extensions assembly
 
 Addtional TextWaitConditions
-	ToNoEqual
-	ToNotContain
 	ToMatch/ToNotMatch (Regex)
 
 Additional ElementWaitConditions
@@ -19,3 +17,5 @@ Addtional ClassWaitConditions
 
 New PageWaitConditions
 	AlertBoxShown()
+	TitleEquals/Contains/MaTCHES
+	See other ExpectedConditions.*
