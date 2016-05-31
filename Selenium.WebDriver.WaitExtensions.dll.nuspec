@@ -5,16 +5,15 @@
     <version>1.0.0</version>
     <authors>Chris Lee</authors>
     <owners>Chris Lee</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <projectUrl>https://github.com/Chrislee187/Selenium.WebDriver.WaitExtensions</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>WebDriver extension methods to make WebDriverWait easier to use.</description>
     <releaseNotes>Initial Release</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>Selenium.WebDriver.WaitExtensions Selenium.WebDriver WebDriverWait</tags>
     <dependencies>
-      <dependency id="Selenium.WebDriver" version="1.0" />
+      <dependency id="Selenium.WebDriver" version="2.50" />
+      <dependency id="Selenium.Support" version="1.0" />
     </dependencies>
   </metadata>
   <files>

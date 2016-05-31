@@ -1,13 +1,4 @@
-TODO
-
-Rename namespace to Selenium.WebDriver.WaitExtensions
-nuget package for extensions assembly
-
-New PageWaitConditions
-	AlertBoxIsShown()
-
-INTRODUCTION
-More and more websites these days require asyncronous behavior, either because of AJAX calls to the back end, or, as is becoming more common, the JS presentation/binding/MVVM framework (such as Angular, React, Knockout ) uses asyncronicity to use create a responsive user experience.
+More and more (most?) websites these days require asyncronous behavior, either because of AJAX calls to the back end, or, as is becoming more common, the JS presentation/binding/MVVM framework (such as Angular, React, Knockout ) uses asyncronicity to use create a responsive and maintainable user experience.
 
 These solutions often means that simple Selenium test code requires some form of "wait" between executing an action and checking it's results.
 
