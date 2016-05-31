@@ -8,5 +8,6 @@ namespace WebDriver.WaitExtensions.WaitConditions
         void UrlToEqual(string url);
         void UrlToContain(string url);
         void UrlToMatch(string regex);
+        void ReadyStateComplete();
     }
 }

@@ -24,6 +24,12 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
         }
 
         [Test]
+        public void ShouldWaitForDocumentReady()
+        {
+            Driver.Wait(2500).ForPage().ReadyStateComplete();
+        }
+
+        [Test]
         public void ShouldTimeoutWaitingForPageTitleToEqual()
         {
             Assert.Throws<WebDriverTimeoutException>( () => Driver.Wait(500).ForPage().TitleToEqual("Not the page title"));

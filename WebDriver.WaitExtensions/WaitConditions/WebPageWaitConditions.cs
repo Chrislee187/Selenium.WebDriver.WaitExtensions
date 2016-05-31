@@ -44,5 +44,13 @@ namespace WebDriver.WaitExtensions.WaitConditions
             new WebDriverWait(_webDriver, TimeSpan.FromMilliseconds(_waitMs))
                 .Until(ExpectedConditions.UrlMatches(regex));
         }
+
+
+        public void ReadyStateComplete()
+        {
+            new WebDriverWait(_webDriver, TimeSpan.FromMilliseconds(_waitMs))
+                .Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
+        }
+
     }
 }

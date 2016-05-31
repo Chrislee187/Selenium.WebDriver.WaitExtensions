@@ -4,9 +4,7 @@ Rename namespace to Selenium.WebDriver.WaitExtensions
 nuget package for extensions assembly
 
 New PageWaitConditions
-	AlertBoxShown()
-	TitleEquals/Contains/MaTCHES
-	See other ExpectedConditions.*
+	AlertBoxIsShown()
 
 INTRODUCTION
 More and more websites these days require asyncronous behavior, either because of AJAX calls to the back end, or, as is becoming more common, the JS presentation/binding/MVVM framework (such as Angular, React, Knockout ) uses asyncronicity to use create a responsive user experience.
@@ -31,5 +29,6 @@ There are several "waits" available for WebElements including;
 	ForClass() to check for changes to the 'class' attribute of the element
 	ForText() to check for changes to the 'text' attribute of the element
 	ForAttribute() to check for changes to individual attributes of the element
-	ForElement() to check for element level property changes, such as 'disabled' and 'displayed'
+	ForElement() to check for element level property changes, such as 'disabled', 'displayed' & selected
+	ForPage() to check for page level changes such as Url, Title, document.readyState
 
