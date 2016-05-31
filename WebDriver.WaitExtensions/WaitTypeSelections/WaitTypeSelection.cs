@@ -18,5 +18,12 @@ namespace WebDriver.WaitExtensions.WaitTypeSelections
         {
             return new WebElementWaitConditions(_webDriver, _waitMs, @by);
         }
+
+        public IWebPageWaitConditions ForPage()
+        {
+            return new WebPageWaitConditions(_webDriver, _waitMs);
+        }
+
+
     }
 }

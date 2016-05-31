@@ -58,6 +58,7 @@
     <Compile Include="WaitConditions\AttributeWaitConditionTests.cs" />
     <Compile Include="WaitConditions\ClassWaitConditionTests.cs" />
     <Compile Include="WaitConditions\ElementWaitConditionTests.cs" />
+    <Compile Include="WaitConditions\PageWaitConditionTests.cs" />
     <Compile Include="WaitConditions\TextWaitConditionTests.cs" />
     <Compile Include="WaitConditions\WebDriverExtensionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

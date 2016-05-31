@@ -55,12 +55,14 @@
     <Compile Include="WaitConditions\ClassWaitConditions.cs" />
     <Compile Include="WaitConditions\ElementWaitConditions.cs" />
     <Compile Include="WaitConditions\IElementWaitConditions.cs" />
+    <Compile Include="WaitConditions\IWebPageWaitConditions.cs" />
     <Compile Include="WaitConditions\WebElementWaitConditions.cs" />
     <Compile Include="WaitConditions\IAttributeWaitConditions.cs" />
     <Compile Include="WaitConditions\IWebElementWaitConditions.cs" />
     <Compile Include="WaitConditions\ITextWaitConditions.cs" />
     <Compile Include="WaitConditions\TextWaitConditions.cs" />
     <Compile Include="WaitConditions\WaitConditionsBase.cs" />
+    <Compile Include="WaitConditions\WebPageWaitConditions.cs" />
     <Compile Include="WaitTypeSelections\ElementWaitTypeSelection.cs" />
     <Compile Include="WaitTypeSelections\IClassWaitConditions.cs" />
     <Compile Include="WaitTypeSelections\IElementWaitTypeSelection.cs" />
