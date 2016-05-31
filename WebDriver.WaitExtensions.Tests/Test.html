@@ -61,6 +61,14 @@
         <td><button id="enableElementButton">Enable element</button></td>
         <td><button id="elementToEnable" disabled="disabled">Button</button></td>
     </tr>
+    <tr>
+        <td><button id="selectOption2Button">Select Option2</button></td>
+        <td><select id="testSelect">
+    <option id="option1" selected="selected">Option1</option>
+    <option id="option2">Option2</option>
+</select>
+</td>
+    </tr>
 </table>
     <div id="neverVisibleElement" style="display: none"></div>
     <div id="alwaysVisibleElement"></div>
@@ -127,6 +135,12 @@
         $("#enableElementButton").click(function () {
             window.setTimeout(function () {
                 $("#elementToEnable").prop("disabled", false);
+            },
+                delayMs);
+        });
+        $("#selectOption2Button").click(function () {
+            window.setTimeout(function () {
+                $("#option2").prop("selected", true);
             },
                 delayMs);
         });

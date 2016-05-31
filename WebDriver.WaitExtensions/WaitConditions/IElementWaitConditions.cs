@@ -6,5 +6,7 @@ namespace WebDriver.WaitExtensions.WaitConditions
         void ToBeInvisible();
         void ToBeDisabled();
         void ToBeEnabled();
+        void ToBeSelected();
+        void ToNotBeSelected();
     }
 }

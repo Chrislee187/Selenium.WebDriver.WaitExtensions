@@ -84,6 +84,42 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
             Assert.Throws<WebDriverTimeoutException>( () =>element.Wait(2500).ForElement().ToBeEnabled());
         }
 
+        [Test]
+        public void ShouldWaitForElementToBeSelected()
+        {
+            var element = Driver.FindElement(By.Id("option2"));
+
+            Driver.FindElement(By.Id("selectOption2Button")).Click();
+
+            element.Wait(2500).ForElement().ToBeSelected();
+        }
+        [Test]
+        public void ShouldTimeoutWaitingForElementToBeSelected()
+        {
+            Driver.Navigate().Refresh();
+            var element = Driver.FindElement(By.Id("option2"));
+
+            Assert.Throws<WebDriverTimeoutException>( () => element.Wait(2500).ForElement().ToBeSelected());
+        }
+
+        [Test]
+        public void ShouldWaitForElementToNotBeSelected()
+        {
+            Driver.Navigate().Refresh();
+            var element = Driver.FindElement(By.Id("option1"));
+
+            Driver.FindElement(By.Id("selectOption2Button")).Click();
+
+            element.Wait(2500).ForElement().ToNotBeSelected();
+        }
+        [Test]
+        public void ShouldTimeoutWaitingForElementToNotBeSelected()
+        {
+            Driver.Navigate().Refresh();
+            var element = Driver.FindElement(By.Id("option1"));
+
+            Assert.Throws<WebDriverTimeoutException>(() => element.Wait(2500).ForElement().ToNotBeSelected());
+        }
 
     }
 }

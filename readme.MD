@@ -26,15 +26,18 @@ The Selenium.WebDriver.Support package offers a WebDriverWait class that offers 
 Enter Selenium.WebDriver.WaitExtensions, some simple extension methods to make testing Selenium.WebDriver testing of async behaviour at little nicer and a little less cumbersome.
 
 QUICK EXAMPLES
-Wait for an element to appear in the DOM
+Wait 2500ms for an element to appear in the DOM
 	webdriver.Wait(2500).ForElement(By.Id("dynamicElement").ToExist()
 
-Wait for a class to attach to an element
-	webelement.Wait(2500).ForClass().ToContains("my-new-class")
+Wait 150ms for a specific class to attach to an element
+	webelement.Wait(150).ForClass().ToContains("my-new-class")
+
+All checks have an Opposite 'Not' check i.e ToExist()/ToNotExist()
+WebDriverTimeoutException thrown when timeout is reached
 
 There are several "waits" available for WebElements including;
 	ForClass() to check for changes to the 'class' attribute of the element
 	ForText() to check for changes to the 'text' attribute of the element
-	ForAttribute() to check for changes to invididual attributes of the element
+	ForAttribute() to check for changes to individual attributes of the element
 	ForElement() to check for element level property changes, such as 'disabled' and 'displayed'
 

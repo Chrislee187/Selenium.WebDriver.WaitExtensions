@@ -28,5 +28,13 @@ namespace WebDriver.WaitExtensions.WaitConditions
         {
             WaitFor(() => _webelement.Enabled);
         }
+        public void ToBeSelected()
+        {
+            WaitFor(() => _webelement.Selected);
+        }
+        public void ToNotBeSelected()
+        {
+            WaitFor(() => !_webelement.Selected);
+        }
     }
 }
