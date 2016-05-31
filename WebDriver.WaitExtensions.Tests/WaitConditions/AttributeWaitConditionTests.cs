@@ -39,11 +39,12 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
             var element = Driver.FindElement(By.Id("addAttributeElement"));
             Assert.Throws<WebDriverTimeoutException>( ()=> element.Wait(2500).ForAttributes().ToContainWithoutValue("test", "never-set-value"));
         }
+
         [Test]
         public void ShouldTimeoutWaitingForAttributeToBeAdded()
         {
             var element = Driver.FindElement(By.Id("addAttributeElement"));
-Assert.Throws<WebDriverTimeoutException>(() => element.Wait(25).ForAttributes().ToNotContain("attribute-that-never-exists"));
+            Assert.Throws<WebDriverTimeoutException>(() => element.Wait(25).ForAttributes().ToNotContain("attribute-that-never-exists"));
 
         }
     }

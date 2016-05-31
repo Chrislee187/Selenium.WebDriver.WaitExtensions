@@ -27,17 +27,23 @@ namespace WebDriver.WaitExtensions.WaitConditions
         public bool ToContainMatch(string regexPattern)
         {
             var regex = new Regex(regexPattern);
-            return WaitFor(() => GetClasses().Any( cn => regex.Match(cn).Success));
+            return WaitFor(() => GetClasses().Any( cn => regex.Match(cn).Success), ClassesString());
         }
 
         public bool ToNotContain(string className)
         {
-            return WaitFor(() => !ToContain(className));
+            return WaitFor(() => !ToContain(className), ClassesString());
         }
         public bool ToNotContainMatch(string regexPattern)
         {
             var regex = new Regex(regexPattern);
-            return WaitFor(() => GetClasses().All(cn => !regex.Match(cn).Success));
+            return WaitFor(() => GetClasses().All(cn => !regex.Match(cn).Success), ClassesString());
         }
+
+        private string ClassesString()
+        {
+            return "classes;\n   " + _webelement.GetAttribute("class");
+        }
+
     }
 }

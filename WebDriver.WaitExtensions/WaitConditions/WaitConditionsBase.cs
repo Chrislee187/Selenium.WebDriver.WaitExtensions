@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Internal;
 
 namespace WebDriver.WaitExtensions.WaitConditions
 {
@@ -14,7 +16,7 @@ namespace WebDriver.WaitExtensions.WaitConditions
         {
             _waitMs = waitMs;
         }
-        protected bool WaitFor(Func<bool> test)
+        protected bool WaitFor(Func<bool> test, string exceptionMessage = "Waiting for Text to change.")
         {
             var stopwatch = new Stopwatch();
 
@@ -28,7 +30,7 @@ namespace WebDriver.WaitExtensions.WaitConditions
                 Thread.Sleep(_interval);
             }
 
-            throw new WebDriverTimeoutException($"Waiting for Text to change.");
+            throw new WebDriverTimeoutException(exceptionMessage);
         }
     }
 }
