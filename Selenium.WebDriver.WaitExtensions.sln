@@ -12,6 +12,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.WebDriver.WaitExte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.WebDriver.WaitExtensions.Tests", "Selenium.WebDriver.WaitExtensions.Tests\Selenium.WebDriver.WaitExtensions.Tests.csproj", "{C4F3AD87-E797-43F5-AA81-F945BF95D8A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{A6841119-821D-488F-9534-3DE5D3BE2B69}"
+	ProjectSection(SolutionItems) = preProject
+		Selenium.WebDriver.WaitExtensions.dll.nuspec = Selenium.WebDriver.WaitExtensions.dll.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
