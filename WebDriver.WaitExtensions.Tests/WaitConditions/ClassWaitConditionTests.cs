@@ -38,5 +38,40 @@ namespace WebDriver.WaitExtensions.Tests.WaitConditions
             
             Assert.Throws<WebDriverTimeoutException>(() => element.Wait(2500).ForClasses().ToContain("backred"));
         }
+
+        [Test]
+        public void ShouldWaitForClassToContainMatch()
+        {
+            var element = Driver.FindElement(By.Id("addClassText"));
+            Driver.FindElement(By.Id("addClassButton")).Click();
+
+            element.Wait(2500).ForClasses().ToContainMatch(".*red");
+        }
+
+        [Test]
+        public void ShouldTimeoutWaitingForClassToContainMatch()
+        {
+            var element = Driver.FindElement(By.Id("addClassText"));
+
+            Assert.Throws<WebDriverTimeoutException>(() =>   element.Wait(2500).ForClasses().ToContainMatch(".*red"));
+        }
+
+
+        [Test]
+        public void ShouldWaitForClassToNotContainMatch()
+        {
+            var element = Driver.FindElement(By.Id("addClassText"));
+
+            element.Wait(2500).ForClasses().ToNotContainMatch(".*red");
+        }
+
+        [Test]
+        public void ShouldTimeoutWaitingForClassToNotContainMatch()
+        {
+            var element = Driver.FindElement(By.Id("removeClass"));
+
+            Assert.Throws<WebDriverTimeoutException>(() => element.Wait(2500).ForClasses().ToNotContainMatch(".*to-be-removed.*"));
+        }
+
     }
 }

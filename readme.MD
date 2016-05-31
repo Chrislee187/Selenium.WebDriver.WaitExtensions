@@ -3,14 +3,6 @@ TODO
 Rename namespace to Selenium.WebDriver.WaitExtensions
 nuget package for extensions assembly
 
-Additional ElementWaitConditions
-	ToBeSelected
-	ToNotBeSelected
-
-Addtional ClassWaitConditions
-	ToMatch
-	ToNotMatch
-
 New PageWaitConditions
 	AlertBoxShown()
 	TitleEquals/Contains/MaTCHES

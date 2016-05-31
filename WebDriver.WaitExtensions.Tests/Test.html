@@ -42,6 +42,10 @@
         <td id="addClassText">Set Background</td>
     </tr>
     <tr>
+        <td><button id="removeClassButton">Remove Class</button></td>
+        <td id="removeClass" class="class-to-be-removed" >class will be removed</td>
+    </tr>
+        <tr>
         <td><button id="addAttributeButton">Add Attribute</button></td>
         <td id="addAttributeElement">Attribute 'test' will be set with value 'MyTest'</td>
     </tr>
@@ -71,7 +75,7 @@
     </tr>
 </table>
     <div id="neverVisibleElement" style="display: none"></div>
-    <div id="alwaysVisibleElement"></div>
+    <div id="alwaysVisibleElement"  class="fake-class"></div>
     <button id="alwaysEnabledElement">Always Enabled</button>
 <button id="alwaysDisabledElement" disabled="disabled">Always Disabled</button>
 <div id="textThatNeverChanges">Text That Never Changes</div>
@@ -101,6 +105,12 @@
         $("#addClassButton").click(function () {
             window.setTimeout(function () {
                 $("#addClassText").addClass("backred");
+            },
+                delayMs);
+        });
+        $("#removeClassButton").click(function () {
+            window.setTimeout(function () {
+                $("#removeClass").removeClass("class-to-be-removed");
             },
                 delayMs);
         });
