@@ -1,0 +1,3 @@
+Build in visual studio
+run package.ps1
+upload the nupkg place in \NugetLOcal to NUGET once happy
