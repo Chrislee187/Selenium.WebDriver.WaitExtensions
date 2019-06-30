@@ -8,12 +8,15 @@ Enter Selenium.WebDriver.WaitExtensions, some simple extension methods to make t
 
 QUICK EXAMPLES
 Wait 2500ms for an element to appear in the DOM
+
 	```var webelement = webdriver.Wait(2500).ForElement(By.Id("dynamicElement").ToExist()```
 
 Wait 150ms for a specific class to attach to an element
+
 	```webelement.Wait(150).ForClass().ToContains("my-new-class")```
 
 All checks have an Opposite 'Not' check i.e `ToExist()/ToNotExist()`
+
 `WebDriverTimeoutException` thrown when timeout is reached
 
 There are several "waits" available for WebElements including;
