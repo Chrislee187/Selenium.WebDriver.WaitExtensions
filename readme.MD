@@ -8,19 +8,19 @@ Enter Selenium.WebDriver.WaitExtensions, some simple extension methods to make t
 
 QUICK EXAMPLES
 Wait 2500ms for an element to appear in the DOM
-	var webelement = webdriver.Wait(2500).ForElement(By.Id("dynamicElement").ToExist()
+	```var webelement = webdriver.Wait(2500).ForElement(By.Id("dynamicElement").ToExist()```
 
 Wait 150ms for a specific class to attach to an element
-	webelement.Wait(150).ForClass().ToContains("my-new-class")
+	```webelement.Wait(150).ForClass().ToContains("my-new-class")```
 
-All checks have an Opposite 'Not' check i.e ToExist()/ToNotExist()
-WebDriverTimeoutException thrown when timeout is reached
+All checks have an Opposite 'Not' check i.e `ToExist()/ToNotExist()`
+`WebDriverTimeoutException` thrown when timeout is reached
 
 There are several "waits" available for WebElements including;
-	ForClass() to check for changes to the 'class' attribute of the element
-	ForText() to check for changes to the 'text' attribute of the element
-	ForAttribute() to check for changes to individual attributes of the element
-	ForElement() to check for element level property changes, such as 'disabled', 'displayed' & selected
-	ForPage() to check for page level changes such as Url, Title, document.readyState
+	`ForClass()` to check for changes to the 'class' attribute of the element
+	`ForText()` to check for changes to the 'text' attribute of the element
+	`ForAttribute()` to check for changes to individual attributes of the element
+	`ForElement()` to check for element level property changes, such as 'disabled', 'displayed' & selected
+	`ForPage()` to check for page level changes such as Url, Title, document.readyState
 
 	See the Tests for complete examples
