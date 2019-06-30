@@ -20,10 +20,16 @@ All checks have an Opposite 'Not' check i.e `ToExist()/ToNotExist()`
 `WebDriverTimeoutException` thrown when timeout is reached
 
 There are several "waits" available for WebElements including;
+
 	`ForClass()` to check for changes to the 'class' attribute of the element
+	
 	`ForText()` to check for changes to the 'text' attribute of the element
+	
 	`ForAttribute()` to check for changes to individual attributes of the element
+	
 	`ForElement()` to check for element level property changes, such as 'disabled', 'displayed' & selected
+	
 	`ForPage()` to check for page level changes such as Url, Title, document.readyState
+	
 
 	See the Tests for complete examples
