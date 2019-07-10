@@ -12,7 +12,13 @@ namespace Selenium.WebDriver.WaitExtensions.Tests
         [OneTimeSetUp]
         public static void RunBeforeAnyTests()
         {
-            Driver = new ChromeDriver();
+            // TODO: Not sure why we need to supply the directory, worked with the default service previously
+            Driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(Utils.AssemblyDirectory));
+            NavigateToTestPage();
+        }
+
+        public static void NavigateToTestPage()
+        {
             Driver.Navigate().GoToUrl(Path.Combine(Utils.AssemblyDirectory, "Test.html"));
         }
 

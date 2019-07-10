@@ -46,10 +46,8 @@ namespace Selenium.WebDriver.WaitExtensions.Tests.WaitConditions
         [Test]
         public void ShouldWaitForUrlToEqual()
         {
-            var url =
-                @"file:///C:/src/Selenium.WebDriver.WaitExtensions/Selenium.WebDriver.WaitExtensions.Tests/bin/debug/Test.html";
-
-            Driver.Wait(2500).ForPage().UrlToEqual(url);
+            var expected = $"file:///{Utils.AssemblyDirectory}/Test.html".Replace("\\", "/");
+            Driver.Wait(2500).ForPage().UrlToEqual(expected);
         }
 
         [Test]
